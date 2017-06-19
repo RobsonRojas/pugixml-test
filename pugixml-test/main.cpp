@@ -37,8 +37,10 @@ int main()
     project.append_child("description").text().set("a test project");
     // end::modify[]
 
-    doc.save(std::cout);
+    //doc.save(std::cout);
 
+    // saving to file
+    std::cout << "Saving result: " << doc.save_file("test1.xml") << std::endl;
 
     return 0;
 }
