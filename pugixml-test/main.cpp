@@ -11,11 +11,23 @@ int main()
     pugi::xml_document doc;
 
     // get a test document
-    doc.load_string("<project> \
-                    <name>test</name>\
-                    <version>1.1</version>\
-                    <public>yes</public>\
-                    </project>");
+//    doc.load_string("<project> \
+//                    <name>test</name>\
+//                    <version>1.1</version>\
+//                    <public>yes</public>\
+//                    </project>");
+
+
+    pugi::xml_parse_result result = doc.load_file("test1.xml");
+
+    std::cout << "Load result: " << result.description() << std::endl;
+
+    if(result.status != pugi::status_ok)
+    {
+        std::cout << "Error loading" << std::endl;
+        return -1;
+    }
+
 
     pugi::xml_node project = doc.child("project");
 
